@@ -8,9 +8,14 @@
 <%= form_for Calculation.new, remote: true do |f| %>
 
   <p>
-    <%= f.label :operation %><br />
-    <%= f.text_field :operation %>
+    <%= f.label :a %><br />
+    <%= f.text_field :a %>
   </p>
+  <p>
+    <%= f.label :b %><br />
+    <%= f.text_field :b %>
+  </p>
+  
   
   <p><%= f.submit %></p>
 <% end %>

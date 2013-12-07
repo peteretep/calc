@@ -14,7 +14,7 @@ class CalculationsController < ApplicationController
     end
     private
         def calc_params
-            params.require(:calculation).permit(:operation)
+            params.require(:calculation).permit(:a, :b)
         end
 
 end
