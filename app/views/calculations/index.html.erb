@@ -1,0 +1,16 @@
+
+<div id="calculations">
+  <%= render @calculations %>
+</div>
+
+<h3>Add your calculation:</h3>
+
+<%= form_for Calculation.new, remote: true do |f| %>
+
+  <p>
+    <%= f.label :operation %><br />
+    <%= f.text_field :operation %>
+  </p>
+  
+  <p><%= f.submit %></p>
+<% end %>
