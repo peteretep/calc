@@ -1,6 +1,3 @@
-$('<%= escape_javascript(render(:partial => @calculation))%>')
-    .appendTo('#calculations')
-    .hide()
-    .fadeIn()
 
+$('#calculations').html('<%= escape_javascript(render(:partial => @calculation))%>')
 $('#new_calculation')[0].reset()

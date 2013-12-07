@@ -1,21 +1,28 @@
-
-<div id="calculations">
-  <%= render @calculations %>
-</div>
-
 <h3>Add your calculation:</h3>
+
 
 <%= form_for Calculation.new, remote: true do |f| %>
 
-  <p>
-    <%= f.label :a %><br />
+    <div class="form-group">
+       <%= f.label :a %><br>
     <%= f.text_field :a %>
-  </p>
-  <p>
-    <%= f.label :b %><br />
+    </div>
+    <div class="form-group">
+         <%= f.label :b %><br>
     <%= f.text_field :b %>
-  </p>
-  
-  
-  <p><%= f.submit %></p>
+    </div>
+    <div class="form-group">
+        <div class="btn-group">
+           <!--  <button class="btn calculate_btns" disabled="disabled" id="sum">Sum</button>
+            <button class="btn calculate_btns" disabled="disabled" id="difference">Difference</button>
+            <button class="btn calculate_btns" disabled="disabled" id="multiplication">Multiplication</button>
+            <button class="btn calculate_btns" disabled="disabled" id="division">Division</button> -->
+             <%= f.submit %>
+        </div>
+    </div>
+
 <% end %>
+
+<textarea rows="10" cols="50" disabled="disabled" id="calculations">
+  <%= render @last_calculation %>
+</textarea>

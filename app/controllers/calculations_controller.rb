@@ -3,12 +3,15 @@ class CalculationsController < ApplicationController
 
     def index
         @calculations = Calculation.all
+        @last_calculation = Calculation.last
     end
 
     def create
-        @calculation = Calculation.new(calc_params)
+      #  @calculation = Calculation.where("a like ? AND b like ?", "#{params[:a]}", "%#{params[:b]}%")
 
-        @calculation.save
+         @calculation = Calculation.new(calc_params)
+
+         @calculation.save
 
         respond_with @calculation, :location => calculations_url
     end
