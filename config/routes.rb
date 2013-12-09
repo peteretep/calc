@@ -1,4 +1,5 @@
 Calculator::Application.routes.draw do
+  root 'calculations#index'
   resources :calculations
   
   # The priority is based upon order of creation: first created -> highest priority.
