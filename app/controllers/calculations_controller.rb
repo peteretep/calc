@@ -5,11 +5,6 @@ class CalculationsController < ApplicationController
 
   def index
     @calculations = Calculation.all
-    if @calculations
-      @last_calculation = Calculation.last
-    else
-      @last_calculation = Calculation.new
-    end
   end
 
   def create
