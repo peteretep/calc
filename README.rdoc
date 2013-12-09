@@ -17,14 +17,16 @@ When user fills the form and clicks one of the buttons, the form content should 
 
 Server-side code should work in following way:
     * in case of invalid data provided “error” text should be returned
-    * all calculations previously made should be stored in the database; if an operation with given parameters hasn't been made yet, it should be saved; otherwise calculation result should be fetched from DB
+    * all calculations previously made should be stored in the database
+    * if an operation with given parameters hasn't been made yet, it should be saved 
+    * otherwise calculation result should be fetched from DB
 
 server response should equal to 4 lines of text in following format:
     * Operation: A
     * Result: B
     * ID: C
     * Count: D, where:
-        A will be equal to text interpretation of the operation (e.g. in     case of sum of numbers 24 and 23 A should be equal to “24 + 23”
+        A will be equal to text interpretation of the operation
         B will be equal to calculation result
         C will be an DB document/record ID where given operation data is stored
         D will equal to number of previous calls for given operation
