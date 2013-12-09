@@ -18,8 +18,8 @@
           <button class="btn calculate_btns" disabled="disabled" id="difference">Difference</button>
           <button class="btn calculate_btns" disabled="disabled" id="multiplication">Multiplication</button>
           <button class="btn calculate_btns" disabled="disabled" id="division">Division</button> -->
-          
-          <%= button_tag "Add", :class =>'btn btn-default calculate_btns', :disabled => 'disabled', :type => 'submit' %>
+          <%= f.submit "Subtract", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
+          <%= f.submit "Add", :class =>'btn btn-default calculate_btns', :disabled => 'disabled'%>
       </div>
   <% end %>
 
