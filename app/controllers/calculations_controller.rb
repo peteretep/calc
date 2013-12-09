@@ -11,58 +11,60 @@ class CalculationsController < ApplicationController
     end
 
     def create
-        if Calculation.exists?({a: params[:calculation][:a], b: params[:calculation][:b]})
-            #retreive it
-            @calculation = Calculation.where({a: params[:calculation][:a], b: params[:calculation][:b]}).first
-            # And increment the count value by one
-            @calculation.increment!(:counter)
+      case params[:commit]
+      when "Add"
+        @operation = "#{params[:calculation][:a]} + #{params[:calculation][:b]}"
+        if Calculation.exists?({operation: @operation})
+          @calculation = Calculation.where({operation: @operation}).first
+          @calculation.increment!(:counter)
         else
-            @calculation = Calculation.new(calc_params)
-            if params[:commit] == "Subtract"
-                @calculation.operation = @calculation.a - @calculation.b                          
-            else params[:commit] == "Add"
-                @calculation.operation = @calculation.a + @calculation.b
-                
-            end
-            @calculation.save
-            
+          @calculation = Calculation.new(calc_params)
+          @calculation.operation = @operation
+          @calculation.result = @calculation.a + @calculation.b
+          @calculation.save
         end
-        # Return whichever calculation back to the page
-        respond_with @calculation, :location => calculations_url
-        
-        # # If the calculation exists, 
-        # if Calculation.exists?({a: params[:calculation][:a], b: params[:calculation][:b]})
-        #     #retreive it
-        #     @calculation = Calculation.where({a: params[:calculation][:a], b: params[:calculation][:b]}).first
-        #     # And increment the count value by one
-        #     @calculation.increment!(:counter)
-        # else
-        #     # Else create a new calculation
-        #     @calculation = Calculation.new(calc_params)
-        #     @calculation.operation = @calculation.a + @calculation.b
-        #     @calculation.save
-        # end
-        # # Return whichever calculation back to the page
-        # respond_with @calculation, :location => calculations_url
+
+      when "Subtract"
+        @operation = "#{params[:calculation][:a]} - #{params[:calculation][:b]}"
+        if Calculation.exists?({operation: @operation})
+          @calculation = Calculation.where({operation: @operation}).first
+          @calculation.increment!(:counter)
+        else
+          @calculation = Calculation.new(calc_params)
+          @calculation.operation = @operation
+          @calculation.result = @calculation.a - @calculation.b
+          @calculation.save
+        end
+
+      when "Multiply"
+        @operation = "#{params[:calculation][:a]} * #{params[:calculation][:b]}"
+        if Calculation.exists?({operation: @operation})
+          @calculation = Calculation.where({operation: @operation}).first
+          @calculation.increment!(:counter)
+        else
+          @calculation = Calculation.new(calc_params)
+          @calculation.operation = @operation
+          @calculation.result = @calculation.a * @calculation.b
+          @calculation.save
+        end
+
+      when "Divide"
+        @operation = "#{params[:calculation][:a]} / #{params[:calculation][:b]}"
+        if Calculation.exists?({operation: @operation})
+          @calculation = Calculation.where({operation: @operation}).first
+          @calculation.increment!(:counter)
+        else
+          @calculation = Calculation.new(calc_params)
+          @calculation.operation = @operation
+          @calculation.result = @calculation.a / @calculation.b
+          @calculation.save
+        end
+
+      end
+
+      respond_with @calculation, :location => calculations_url
+       
     end
-
-    # def minus
-    #     # If the calculation exists, 
-    #     if Calculation.exists?({a: params[:calculation][:a], b: params[:calculation][:b]})
-    #         #retreive it
-    #         @calculation = Calculation.where({a: params[:calculation][:a], b: params[:calculation][:b]}).first
-    #         # And increment the count value by one
-    #         @calculation.increment!(:counter)
-    #     else
-    #         # Else create a new calculation
-    #         @calculation = Calculation.new(calc_params)
-    #         @calculation.operation = @calculation.a - @calculation.b
-    #         @calculation.save
-    #     end
-    #     # Return whichever calculation back to the page
-    #     respond_with @calculation, :location => calculations_url
-    # end
-
 
     private
         def calc_params

@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208203053) do
+ActiveRecord::Schema.define(version: 20131209095624) do
 
   create_table "calculations", force: true do |t|
-    t.string   "operation"
+    t.string   "result"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "a"
     t.integer  "b"
     t.integer  "counter",    default: 0
+    t.string   "operation"
   end
 
 end

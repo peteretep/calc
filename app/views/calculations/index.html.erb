@@ -12,14 +12,11 @@
            <%= f.label :b, :class =>'sr-only'%><br>
       <%= f.text_field :b, :class =>'form-control'%>
       </div>
-      <div class="form-group">
-
-         <!--  <button class="btn calculate_btns" disabled="disabled" id="sum">Sum</button>
-          <button class="btn calculate_btns" disabled="disabled" id="difference">Difference</button>
-          <button class="btn calculate_btns" disabled="disabled" id="multiplication">Multiplication</button>
-          <button class="btn calculate_btns" disabled="disabled" id="division">Division</button> -->
-          <%= f.submit "Subtract", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
-          <%= f.submit "Add", :class =>'btn btn-default calculate_btns', :disabled => 'disabled'%>
+      <div class="btn-group">
+          <%= f.submit "Add", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
+          <%= f.submit "Subtract", :class =>'btn btn-default calculate_btns', :disabled => 'disabled'%>
+          <%= f.submit "Multiply", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
+          <%= f.submit "Divide", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
       </div>
   <% end %>
 
