@@ -56,7 +56,7 @@ class CalculationsController < ApplicationController
         else
           @calculation = Calculation.new(calc_params)
           @calculation.operation = @operation
-          @calculation.result = @calculation.a / @calculation.b
+          @calculation.result = @calculation.a.to_f / @calculation.b.to_f
           @calculation.save
         end
 
