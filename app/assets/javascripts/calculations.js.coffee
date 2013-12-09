@@ -17,6 +17,6 @@ $(document).ready ->
     $("#new_calculation :input").attr("disabled", true);
   )
   $("#new_calculation").on("ajax:success", (e, data, status, xhr) ->
-    $("#new_calculation :input").attr("disabled", false);
+    $(".input_box").attr("disabled", false);
   ).bind "ajax:error", (e, xhr, status, error) ->
     $("#calculations").append "<p>ERROR</p>"

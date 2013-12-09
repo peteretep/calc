@@ -5,11 +5,11 @@
     <%= form_for Calculation.new, :html=> { class: 'form-inline' }, remote: true do |f| %>
       <div class="form-group">
         <%= f.label :a, :class =>'sr-only'%><br>
-        <%= f.text_field :a, :class =>'form-control'%>
+        <%= f.text_field :a, :class =>'form-control input_box'%>
       </div>
       <div class="form-group">
         <%= f.label :b, :class =>'sr-only'%><br>
-        <%= f.text_field :b, :class =>'form-control'%>
+        <%= f.text_field :b, :class =>'form-control input_box'%>
       </div>
       <div class="btn-group">
           <%= f.submit "Add", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
