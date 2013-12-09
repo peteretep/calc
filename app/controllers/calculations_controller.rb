@@ -1,4 +1,4 @@
-# This is the CalculationsController
+# This is CalculationsController does the maths
 class CalculationsController < ApplicationController
   respond_to :html, :js
 
@@ -7,17 +7,20 @@ class CalculationsController < ApplicationController
   end
 
   def create
-    case params[:commit]
-    when 'Add'
-      run_calculation(:+)
-    when 'Subtract'
-      run_calculation(:-)
-    when 'Multiply'
-      run_calculation(:*)
-    when 'Divide'
-      run_calculation(:/)
+    if params[:calculation][:a].to_f.between?(0, 100) &&
+       params[:calculation][:b].to_f.between?(0, 100)
+      case params[:commit]
+      when 'sum'
+        run_calculation(:+)
+      when 'difference'
+        run_calculation(:-)
+      when 'multiplication'
+        run_calculation(:*)
+      when 'division'
+        run_calculation(:/)
+      end
+      respond_with @calculation, location: calculations_url
     end
-    respond_with @calculation, location: calculations_url
   end
 
   private

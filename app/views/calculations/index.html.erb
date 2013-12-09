@@ -13,17 +13,17 @@
 
         <%= f.label :b, :class =>'input-group-addon'%>
         <%= f.text_field :b, 
-          :class =>'form-control', 
+          :class =>'form-control input_box', 
           :type => 'number',
           :max => '100',
           :min =>'0' %>
       </div>
       
       <div class="btn-group ">
-          <%= f.submit "Add", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
-          <%= f.submit "Subtract", :class =>'btn btn-default calculate_btns', :disabled => 'disabled'%>
-          <%= f.submit "Multiply", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
-          <%= f.submit "Divide", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
+          <%= f.submit "sum", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
+          <%= f.submit "difference", :class =>'btn btn-default calculate_btns', :disabled => 'disabled'%>
+          <%= f.submit "multiplication", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
+          <%= f.submit "division", :class =>'btn btn-default calculate_btns', :disabled => 'disabled' %>
       </div>
     <% end %>
     

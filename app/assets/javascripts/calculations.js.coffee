@@ -5,7 +5,8 @@
 
 $(document).ready ->
   action = ->
-    if ($("#calculation_a").val() > 0 and $("#calculation_a").val() < 100) and ($("#calculation_b").val() > 0 and $("#calculation_b").val() < 100)
+    if ( 0 < $("#calculation_a").val() < 100 ) and   
+       ( 0 < $("#calculation_b").val() < 100 )
       $(".calculate_btns").prop "disabled", false
     else
       $(".calculate_btns").prop "disabled", true
@@ -17,6 +18,9 @@ $(document).ready ->
     $("#new_calculation :input").attr("disabled", true);
   )
   $("#new_calculation").on("ajax:success", (e, data, status, xhr) ->
-    $(".input_box").attr("disabled", false);
+    $(".input_box").attr("disabled", false)
+    $('#new_calculation')[0].reset()
   ).bind "ajax:error", (e, xhr, status, error) ->
-    $("#calculations").append "<p>ERROR</p>"
+    $("#calculations").html(status)
+    $(".input_box").attr("disabled", false)
+    $('#new_calculation')[0].reset()
