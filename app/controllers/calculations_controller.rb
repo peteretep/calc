@@ -7,8 +7,8 @@ class CalculationsController < ApplicationController
   end
 
   def create
-    if params[:calculation][:a].to_f.between?(0, 100) &&
-       params[:calculation][:b].to_f.between?(0, 100)
+    if params[:calculation][:a].to_i.between?(0, 100) &&
+       params[:calculation][:b].to_i.between?(0, 100)
       case params[:commit]
       when 'sum'
         run_calculation(:+)
