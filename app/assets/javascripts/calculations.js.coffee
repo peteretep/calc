@@ -6,7 +6,9 @@
 $(document).ready ->
   action = ->
     if ( 0 < $("#calculation_a").val() < 100 ) and   
-       ( 0 < $("#calculation_b").val() < 100 )
+       ( 0 < $("#calculation_b").val() < 100 ) and
+       ( $("#calculation_a").val() % 1 is 0 ) and
+       ( $("#calculation_b").val() % 1 is 0 )
       $(".calculate_btns").prop "disabled", false
     else
       $(".calculate_btns").prop "disabled", true
